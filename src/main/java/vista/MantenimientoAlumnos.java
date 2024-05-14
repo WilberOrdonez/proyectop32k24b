@@ -6,23 +6,14 @@
 package vista;
 
 import modelo.AlumnosDAO;
-import modelo.CursosDAO;
-import modelo.EmpleadoDAO;
-import controlador.Cursos;
-import controlador.Empleado;
 import controlador.Alumnos;
 import controlador.clsBitacora;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
-import java.util.HashSet;
 import controlador.clsUsuarioConectado;
-import java.util.Set;
 import modelo.Conexion;
 import java.sql.Connection;
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.HashMap;
 import java.util.Map;
 import net.sf.jasperreports.engine.JasperCompileManager;
