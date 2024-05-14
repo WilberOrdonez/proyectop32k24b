@@ -43,12 +43,12 @@
 				<textFieldExpression><![CDATA[$F{carnet_alumno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="173" y="16" width="100" height="20" uuid="61021a97-2ff2-4e2b-835a-63b13c17eb4b"/>
+				<reportElement x="199" y="16" width="100" height="20" uuid="61021a97-2ff2-4e2b-835a-63b13c17eb4b"/>
 				<textFieldExpression><![CDATA[$F{nombre_alumno}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="306" y="16" width="100" height="20" uuid="bcce5a5c-e95a-43e8-a14a-bede49e46bbb"/>
-				<textFieldExpression><![CDATA[$F{email_alumno}]]></textFieldExpression>
+				<reportElement x="353" y="16" width="100" height="20" uuid="be5bcfd3-5696-409f-9d77-a9d135d46995"/>
+				<textFieldExpression><![CDATA[$F{estatus_alumno}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>
