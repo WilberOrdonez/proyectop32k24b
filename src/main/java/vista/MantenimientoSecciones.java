@@ -64,7 +64,7 @@ public class MantenimientoSecciones extends javax.swing.JInternalFrame {
         seccionAConsultar = seccionDAO.query(seccionAConsultar);
         txtCodigo.setText(seccionAConsultar.getCodigo_seccion());
         txtNombre.setText(seccionAConsultar.getNombre_seccion());
-        txtEstatus.setText(seccionAConsultar.getEstatus_seccion());
+        BtnEstatus.setSelectedItem(seccionAConsultar.getEstatus_seccion());
     }
 
     public MantenimientoSecciones() {
@@ -323,7 +323,8 @@ public class MantenimientoSecciones extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:         
+        
         SeccionDAO seccionDAO = new SeccionDAO();
         Seccion seccionAEliminar = new Seccion();
         seccionAEliminar.setCodigo_seccion(txtbuscado.getText());
@@ -338,7 +339,13 @@ public class MantenimientoSecciones extends javax.swing.JInternalFrame {
         seccionAInsertar.setCodigo_seccion(txtCodigo.getText());
         
         seccionAInsertar.setNombre_seccion(txtNombre.getText());
-        seccionAInsertar.setEstatus_seccion(txtEstatus.getText());
+   String estado = (String)BtnEstatus.getSelectedItem();
+    if (estado.equals("Activa")) {
+        seccionAInsertar.setEstatus_seccion("A");
+    } else if (estado.equals("Inactiva")) {
+        seccionAInsertar.setEstatus_seccion("I");
+    }
+        
         seccionDAO.insert(seccionAInsertar);
         Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
         llenadoDeTablas();
@@ -356,7 +363,12 @@ public class MantenimientoSecciones extends javax.swing.JInternalFrame {
         Seccion seccionAActualizar = new Seccion();
         seccionAActualizar.setCodigo_seccion(txtbuscado.getText());
         seccionAActualizar.setNombre_seccion(txtNombre.getText());
-        seccionAActualizar.setEstatus_seccion(txtEstatus.getText());
+    String estado = (String)BtnEstatus.getSelectedItem();
+    if (estado.equals("Activa")) {
+        seccionAActualizar.setEstatus_seccion("A");
+    } else if (estado.equals("Inactiva")) {
+        seccionAActualizar.setEstatus_seccion("I");
+    }
         seccionDAO.update(seccionAActualizar);
         Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
         llenadoDeTablas();
@@ -365,7 +377,6 @@ public class MantenimientoSecciones extends javax.swing.JInternalFrame {
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtCodigo.setText("");
         txtNombre.setText("");
-        txtEstatus.setText("");
         txtbuscado.setText("");
         btnRegistrar.setEnabled(true);
         btnModificar.setEnabled(true);
