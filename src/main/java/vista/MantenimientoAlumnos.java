@@ -373,6 +373,7 @@ public class MantenimientoAlumnos extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "SCR");
         buscarAlumnos();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
