@@ -6,7 +6,8 @@ package vista;
 
 import java.awt.event.ItemEvent;
 import javax.swing.DefaultComboBoxModel;
-
+import modelo.FacultadesDAO;
+import controlador.Facultades;
 /**
  *
  * @author cdavi
@@ -22,19 +23,24 @@ public class frmComboBoxs extends javax.swing.JFrame {
     }
 
     public String[]datos(String datos){
-        String[] informacion = new String[3];
-        if(datos.equalsIgnoreCase("colores")){
-            informacion[0]= "Azul";
-            informacion[1]= "Rojo";
-            informacion[2]= "Amarillo";
+        String[] informacion = new String[5];
+        if(datos.equalsIgnoreCase("Ciclo 1")){
+            informacion[0]= "DESARROLLO HUMANO Y PROFESIONAL";
+            informacion[1]= "METODOLOGÍA DE LA INVESTIGACIÓN";
+            informacion[2]= "CONTABILIDAD I";
+            informacion[3]= "INTRODUCCIÓN A LOS SISTEMAS DE CÓMPUTO";
+            informacion[4]= "LÓGICA DE SISTEMAS";
+
         }
-        if(datos.equalsIgnoreCase("Animales")){
-            informacion[0]= "Perro";
-            informacion[1]= "Gato";
-            informacion[2]= "Loro";
+        if(datos.equalsIgnoreCase("Ciclo 2")){
+            informacion[0]= "PRECÁLCULO";
+            informacion[1]= "ÁLGEBRA LINEAL";
+            informacion[2]= "ALGORITMOS";
+            informacion[3]= "CONTABILIDAD II";
+            informacion[4]= "MATEMÁTICA DISCRETA";
         }
-        
-        return informacion;
+
+      return informacion;
     }
     
     /**
@@ -55,6 +61,11 @@ public class frmComboBoxs extends javax.swing.JFrame {
         combo1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 combo1ItemStateChanged(evt);
+            }
+        });
+        combo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo1ActionPerformed(evt);
             }
         });
 
@@ -79,6 +90,8 @@ public class frmComboBoxs extends javax.swing.JFrame {
                 .addContainerGap(215, Short.MAX_VALUE))
         );
 
+        combo1.getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -90,6 +103,10 @@ public class frmComboBoxs extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_combo1ItemStateChanged
+
+    private void combo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo1ActionPerformed
 
     /**
      * @param args the command line arguments

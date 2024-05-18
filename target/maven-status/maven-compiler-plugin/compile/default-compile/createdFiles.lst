@@ -28,6 +28,7 @@ vista\MantenimientoAlumnos$6.class
 controlador\Carreras.class
 modelo\FacultadesDAO.class
 vista\frmMantenimientoBitacora$2.class
+vista\frmComboBoxs$1.class
 modelo\UsuarioDAO.class
 vista\MdiGeneral$1.class
 modelo\CarrerasDAO.class
@@ -62,8 +63,10 @@ modelo\Conexion.class
 vista\MantenimientoAlumnos$1.class
 vista\MantenimientoAlumnos$4.class
 vista\MdiGeneral$7.class
+vista\frmComboBoxs$2.class
 vista\MdiGeneral$2.class
 vista\Login.class
+vista\frmComboBoxs.class
 controlador\Facultades.class
 vista\MantenimientoFacultades$5.class
 vista\MantenimientoAlumnos$7.class
