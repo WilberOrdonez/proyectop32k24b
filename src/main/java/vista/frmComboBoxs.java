@@ -8,11 +8,13 @@ import java.awt.event.ItemEvent;
 import javax.swing.DefaultComboBoxModel;
 import modelo.FacultadesDAO;
 import controlador.Facultades;
+import controlador.Carreras;
+import modelo.CarrerasDAO;
 /**
  *
  * @author cdavi
  */
-public class frmComboBoxs extends javax.swing.JFrame {
+public class frmComboBoxs extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmComboBoxs
