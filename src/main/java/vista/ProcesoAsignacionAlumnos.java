@@ -4,10 +4,9 @@
 
 package vista;
 
-import modelo.EmpleadoDAO;
+
 import modelo.CursosDAO;
 import modelo.SeccionDAO;
-import controlador.Empleado;
 import controlador.Cursos;
 import controlador.Seccion;
 import java.awt.event.ItemEvent;
@@ -21,50 +20,22 @@ import javax.swing.DefaultComboBoxModel;
  *
  * @author visitante
  */
-public class Prueba2 extends javax.swing.JInternalFrame {
+public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
 
-    public void llenadoDeCombos() {
-       /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
-        List<Empleado> empleados = empleadoDAO.select();
-        cbox_empleado.addItem("Seleccione una opción");
-        for (int i = 0; i < empleados.size(); i++) {
-            cbox_empleado.addItem(empleados.get(i).getNombreEmpleado());
-        }*/
+    public void llenadoDeCombosCursos() {
+      CursosDAO cursosDAO = new CursosDAO();
+        List<Cursos> cursos = cursosDAO.select();
+        combo1.addItem("Seleccione una opción");
+        for (int i = 0; i < cursos.size(); i++) {
+            combo1.addItem(cursos.get(i).getNombre_curso());
+        
     }
-/*
-    public void llenadoDeTablas() {
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID Seccion");
-        modelo.addColumn("nombre");
-        modelo.addColumn("Estatus");
-        SeccionDAO seccionDAO = new SeccionDAO();
-        List<Seccion> Seccion = seccionDAO.select();
-        tablaVendedores.setModel(modelo);
-        String[] dato = new String[3];
-        for (int i = 0; i < Seccion.size(); i++) {
-            dato[0] = Seccion.get(i).getCodigo_seccion();
-            dato[1] = Seccion.get(i).getNombre_seccion();
-            dato[2] = Seccion.get(i).getEstatus_seccion();
-            //System.out.println("vendedor:" + vendedores);
-            modelo.addRow(dato);
-        }
-    }
-*/
-    /*
-    public void buscarVendedor() {
-        Seccion seccionAConsultar = new Seccion();
-        SeccionDAO seccionDAO = new SeccionDAO();
-        seccionAConsultar.setCodigo_seccion((txtbuscado.getText()));
-        seccionAConsultar = seccionDAO.query(seccionAConsultar);
-        txtCodigo.setText(seccionAConsultar.getCodigo_seccion());
-        txtNombre.setText(seccionAConsultar.getNombre_seccion());
-        txtEstatus.setText(seccionAConsultar.getEstatus_seccion());
-    }
-*/
-    public Prueba2() {
+}
+
+    public ProcesoAsignacionAlumnos() {
         initComponents();
-     //   llenadoDeTablas();
-        llenadoDeCombos();
+        llenadoDeCombosCursos();
+
     }
 
     

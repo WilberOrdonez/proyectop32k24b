@@ -274,7 +274,7 @@ public class MdiGeneral extends javax.swing.JFrame {
 
     private void ProcesosAlumnosAsignCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcesosAlumnosAsignCursosActionPerformed
         // TODO add your handling code here:
-        Prueba2 ventana = new Prueba2();
+        ProcesoAsignacionAlumnos ventana = new ProcesoAsignacionAlumnos();
         jDesktopPane1.add(ventana);
         Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = ventana.getSize();
