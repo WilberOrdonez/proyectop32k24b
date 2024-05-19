@@ -1,0 +1,266 @@
+commit 03a40183156d792db701d2c4e0a70923a16d6285
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Sun May 12 23:29:49 2024 -0600
+
+    se agrega secciones
+
+commit d399f4780e42fe5c801549c28256855648e3e61a
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Sun May 12 23:17:38 2024 -0600
+
+    Se arreglan los reportes de alumnos
+
+commit 9a2f45edfb2f61986bf71f4aa6f3f21e787a957f
+Merge: cb39b88 52d756a
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Sun May 12 23:11:14 2024 -0600
+
+    Agregando reportes alumnos
+
+commit cb39b881fb24a1640eada239d238f56b06d325f9
+Merge: af4050c 6124aba
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Sun May 12 22:37:53 2024 -0600
+
+    reportes Facultades
+
+commit af4050ca1679a7503a3d0116c85070c110da3c2e
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Sun May 12 22:21:57 2024 -0600
+
+    prueba antes de unir carreras
+
+commit 52d756adcabf2bbfb6a966488a86ece320ef85c4
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Sun May 12 18:42:21 2024 -0600
+
+     se agrego Alumnos_2010
+
+commit 6124aba0844e2602ed6500be20650374b6892318
+Author: Favio2907 <favio.alejandro2907@gmail.com>
+Date:   Sun May 12 16:04:50 2024 -0600
+
+    Agregando Carreras_2040
+
+commit 7a460c8ef37df10cf00b8b17ccbe3825ea89c12c
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Sun May 12 01:42:56 2024 -0600
+
+    main listo para ser usado para los reportes
+
+commit 2c8bc1064d252df9cb2fb943c0344e8af2a40055
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Sat May 11 01:01:17 2024 -0600
+
+    volviendo a punto atras por error en el merge
+
+commit e208eb48edb9720f38a521448307b3a8307c4c41
+Merge: 779f8fb 0becaf6
+Author: WilberOrdonez <127625440+WilberOrdonez@users.noreply.github.com>
+Date:   Sat May 11 00:21:30 2024 -0600
+
+    Merge branch 'main' into main
+
+commit 779f8fb598ba3124a8697226e853b8183c7c71a8
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Fri May 10 22:55:21 2024 -0600
+
+    se pone el archivo de ayudas carreras correcto
+
+commit c02e40a3f1aac1f0a14dd2086fb10405488b9ffc
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Fri May 10 22:51:40 2024 -0600
+
+    Arreglando ayudas secciones y facultades
+
+commit f24b0d8bd4aa336e2cfd909e1f55b01baec4639b
+Merge: 10f4880 8933b9c
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Thu May 9 22:56:08 2024 -0600
+
+    merge de ayudas alumnos
+
+commit 8933b9c941eb94df9ecdca3b3720a8c9558529b5
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Thu May 9 22:51:39 2024 -0600
+
+    final de ayudas
+
+commit fd7f27b8297143eb1bca65ef643696d263b0a7b7
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Thu May 9 22:45:31 2024 -0600
+
+    ayudas para Alumnos
+
+commit 10f4880c505b9c3dc45fa4ffb60d326deba2a352
+Merge: 5b9e674 6e54675
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Thu May 9 22:44:58 2024 -0600
+
+    haciendo merge ayudas secciones
+
+commit 6e5467529026f6d2bed0ad551a9e509121c28ba0
+Author: Leticia Sontay <lsontayc1@miumg.edu.gt>
+Date:   Thu May 9 22:23:16 2024 -0600
+
+    Agregado de Ayudas
+
+commit 25e4f2e33f7e0988afbd52b980e6495dc6433309
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Thu May 9 22:20:05 2024 -0600
+
+     ayudas de alumnos
+
+commit 5b9e67473b22ef8a102b4b94a02cd16f5e4a5eae
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Thu May 9 02:08:42 2024 -0600
+
+    agregando rama y ayudas facultades
+
+commit ee965c92b6ac77fa54f2fe329529a5b78026ad35
+Author: Favio2907 <favio.alejandro2907@gmail.com>
+Date:   Wed May 8 18:46:41 2024 -0600
+
+    Agregando archivo ayudas carreras
+
+commit 71ac28dc47a183eee35eaf0f882c9968cc616069
+Author: Favio2907 <favio.alejandro2907@gmail.com>
+Date:   Wed May 8 17:12:50 2024 -0600
+
+    Subiendo segunda rama de carreras
+
+commit 0becaf6a544803748c03e072482be5372ac441f5
+Author: Esduardo Del Aguila <daguilae@yahoo.com>
+Date:   Wed May 8 12:11:15 2024 -0600
+
+    agregando funcionabilidad a la bitacora de seguridad y los reportes
+
+commit c5283a1e4c7f2deec2ae368b4efabb40198ed737
+Merge: d3f2efc 9e38ad8
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Wed May 8 01:12:12 2024 -0600
+
+    prueba final merge favio
+
+commit d3f2efcbd3690401ffc74ce7d93f6cbaa55c0d1a
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Wed May 8 01:09:32 2024 -0600
+
+    prueba antes de hacer merge de favio
+
+commit cd44105a5c1d75fbb7bf8352b2d46446e398dcb2
+Merge: 28e69d3 84a3bd8
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Wed May 8 01:01:56 2024 -0600
+
+    prueba merge david
+
+commit 28e69d3ea8b6b0e02aa52d28725f2c88a17fbd4b
+Merge: b75119f 53adcae
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Wed May 8 00:43:53 2024 -0600
+
+    prueba commit
+
+commit 9e38ad873b7ec3e6bf7157f24f91f317a0ab49a8
+Author: Favio2907 <favio.alejandro2907@gmail.com>
+Date:   Tue May 7 23:55:30 2024 -0600
+
+    Actualizando conexion
+
+commit b75119fe22492d219915eee832e92e78ae9e8818
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Tue May 7 23:16:36 2024 -0600
+
+    arreglando error de merge
+
+commit 84a3bd8b9591e50851ef6549ebd8b7ce76cacbc8
+Merge: e7005e1 7384af2
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Tue May 7 21:30:34 2024 -0600
+
+    mantenimiento de alumnos terminado
+
+commit e7005e108826359c86c62b5a72e5974ec42bf198
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Tue May 7 21:11:16 2024 -0600
+
+    ahora si ya funciona :)
+
+commit 730c21ddf746269d92edb5f67e32dd836d0985f9
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Tue May 7 08:41:52 2024 -0600
+
+    Actualizacion antes de subir rama de favio
+
+commit 41fcfd35321c2c234bb3b87a9f3d1f2050a0a14d
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Tue May 7 03:14:36 2024 -0600
+
+    modificacion boton eliminar
+
+commit 63011c8bdb02ac33e0a67b4f2414b0ad4c9cb38c
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Tue May 7 02:41:59 2024 -0600
+
+    base de facultades
+
+commit 7384af23df4fdbac60fd029bca8296fa73f40c15
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Tue May 7 00:32:29 2024 -0600
+
+    aun no se arregla ;-;
+
+commit 1f3aaf2dd3a96a4618c1e98357b00ec0a00e8d24
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Tue May 7 00:27:21 2024 -0600
+
+    prueba
+
+commit 26fe564c91765afaf001b89b595599b216ac5d43
+Author: Wilber Ordonez <wordonezr2@miumg.edu.gt>
+Date:   Tue May 7 00:20:33 2024 -0600
+
+    Prueba Lety
+
+commit f2f7567080a7b5094c51494f3751394a97f8467b
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Tue May 7 00:15:20 2024 -0600
+
+    se trata de solucionar el boton reistrar
+
+commit f30e1e875a86bc0137d0b71ccd69f6140e55ce14
+Author: Leticia Sontay <lsontayc1@miumg.edu.gt>
+Date:   Mon May 6 23:25:41 2024 -0600
+
+    Mantenimiento Secciones
+
+commit 7233716a87920bb696be4523238eb86a3491d49c
+Author: Carlos-David-Rojas-Coronado <crojasc3@miumg.edu.gt>
+Date:   Mon May 6 19:42:12 2024 -0600
+
+    creaion de mantenimiento alumnos
+
+commit 53adcae288a2d791c7f23436e1db0a0e14acc9c2
+Author: Favio2907 <favio.alejandro2907@gmail.com>
+Date:   Mon May 6 17:38:00 2024 -0600
+
+    Subiendo rama carreras
+
+commit d68114391ce030a9535ffeaa83ab2af1b026a7e4
+Author: Esduardo Del Aguila <daguilae@yahoo.com>
+Date:   Mon May 6 11:58:49 2024 -0600
+
+    Se agregaron comentarios generales, ejemplos de uso de bitacora y se modifico el diseño de la forma
+
+commit 6f25995ca8f7eb457ad3eed61caf5a87295f3a9d
+Author: Esduardo Del Aguila <daguilae@yahoo.com>
+Date:   Mon May 6 11:25:14 2024 -0600
+
+    reinicio del proyecto universitario
+
+commit d0dcb2750379fd570e19a0a22586ea345dc5904f
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 6 11:03:10 2024 -0600
+
+    Initial commit
