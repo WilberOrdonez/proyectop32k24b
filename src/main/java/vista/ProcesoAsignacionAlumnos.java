@@ -4,7 +4,8 @@
 
 package vista;
 
-
+import modelo.CiclosDAO;
+import controlador.Ciclos;
 import modelo.CursosDAO;
 import modelo.SeccionDAO;
 import controlador.Cursos;
@@ -25,13 +26,26 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
     public void llenadoDeCombosCursos() {
       CursosDAO cursosDAO = new CursosDAO();
         List<Cursos> cursos = cursosDAO.select();
-        combo1.addItem("Seleccione una opción");
+        combo2.addItem("Seleccione una opción");
         for (int i = 0; i < cursos.size(); i++) {
-            combo1.addItem(cursos.get(i).getNombre_curso());
+            combo2.addItem(cursos.get(i).getNombre_curso());
         
     }
+        
+        
 }
-
+    
+    public void llenadoDeCombosCiclos() {
+      CiclosDAO ciclosDAO = new CiclosDAO();
+        List<Ciclos> ciclos = ciclosDAO.select();
+        combo1.addItem("Seleccione una opción");
+        for (int i = 0; i < ciclos.size(); i++) {
+            combo1.addItem(ciclos.get(i).getNombre_ciclo());
+        
+    }
+        
+        
+}
     public ProcesoAsignacionAlumnos() {
         initComponents();
         llenadoDeCombosCursos();
