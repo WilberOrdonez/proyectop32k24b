@@ -32,7 +32,6 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
     public void llenadoDeCombosCiclos() {
       CiclosDAO ciclosDAO = new CiclosDAO();
         List<Ciclos> ciclos = ciclosDAO.select();
-        jcbCiclos.addItem("Seleccione una opción");
         for (int i = 0; i < ciclos.size(); i++) {
             jcbCiclos.addItem(ciclos.get(i).getNombre_ciclo());
         
@@ -42,17 +41,7 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
 }
     
     
-    
-    /*
-    public void llenadoDeCombosCiclos() {
-    CiclosDAO ciclosDAO = new CiclosDAO();
-        List<Ciclos> ciclos = ciclosDAO.select();
-        jcbCiclos.addItem("Seleccione una opción");
-        for (Ciclos ciclo : ciclos) {
-            jcbCiclos.addItem(ciclo.getNombre_ciclo());
-    }
-}
-    */
+
         public void llenadoDeCombosAlumnos() {
         AlumnosDAO alumnosDAO = new AlumnosDAO();
         List<Alumnos> alumnos = alumnosDAO.select();
@@ -61,10 +50,108 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
             jcbAlumnos.addItem(item);
         }
     }
+        
+//    public void llenadoDeTablas() {
+//        DefaultTableModel modelo = new DefaultTableModel();
+//        modelo.addColumn("Nombre del Curso");  // Agregamos solo una columna para el nombre del curso
+//        CursosDAO cursoDAO = new CursosDAO();
+//        List<Cursos> cursos = cursoDAO.select();
+//        tblCursosAAsignar.setModel(modelo);
+//        String[] dato = new String[1];  // Solo necesitamos una columna en el arreglo de datos
+//        for (Cursos curso : cursos) {
+//            dato[0] = curso.getCodigo_curso() + " "+ curso.getNombre_curso();
+//            modelo.addRow(dato);
+//        }
+//    }
+        
+public void llenadoDeTablas() {
+    DefaultTableModel modelo = new DefaultTableModel();
+    modelo.addColumn("Curso a Asignar");
+
+    CursosDAO cursoDAO = new CursosDAO();
+    List<Cursos> cursos = cursoDAO.select();
+
+    // Verificar que la lista de cursos no esté vacía
+    System.out.println("Cursos obtenidos: " + cursos.size());
+
+    tblCursosAAsignar.setModel(modelo);
+    String[] dato = new String[1];
+
+    String cicloSeleccionado = (String) jcbCiclos.getSelectedItem();
+    
+    // Verificar el ciclo seleccionado
+    System.out.println("Ciclo seleccionado: " + cicloSeleccionado);
+
+    int codigoInicio = 0;
+    int codigoFin = 0;
+
+    switch (cicloSeleccionado) {
+        case "1 Ciclo":
+            codigoInicio = 101;
+            codigoFin = 105;
+            break;
+        case "2 Ciclo":
+            codigoInicio = 106;
+            codigoFin = 110;
+            break;
+        case "3 Ciclo":
+            codigoInicio = 111;
+            codigoFin = 115;
+            break;
+        case "4 Ciclo":
+            codigoInicio = 116;
+            codigoFin = 120;
+            break;
+        case "5 Ciclo":
+            codigoInicio = 121;
+            codigoFin = 125;
+            break;
+        case "6 Ciclo":
+            codigoInicio = 126;
+            codigoFin = 130;
+            break;
+        case "7 Ciclo":
+            codigoInicio = 131;
+            codigoFin = 135;
+            break;
+        case "8 Ciclo":
+            codigoInicio = 136;
+            codigoFin = 140;
+            break;
+        case "9 Ciclo":
+            codigoInicio = 141;
+            codigoFin = 145;
+            break;
+        case "10 Ciclo":
+            codigoInicio = 146;
+            codigoFin = 150;
+            break;
+        default:
+            System.out.println("Ciclo no válido seleccionado.");
+    }
+
+    if (codigoInicio > 0 && codigoFin > 0) {
+        for (Cursos curso : cursos) {
+            int codigoCurso = Integer.parseInt(curso.getCodigo_curso());
+            if (codigoCurso >= codigoInicio && codigoCurso <= codigoFin) {
+                dato[0] = curso.getNombre_curso();
+                modelo.addRow(dato);
+                System.out.println("Curso agregado: " + curso.getNombre_curso());
+            }
+        }
+    } else {
+        System.out.println("No se han definido los códigos de inicio y fin correctamente.");
+    }
+
+    // Verificar el número de filas añadidas al modelo
+    System.out.println("Filas añadidas al modelo: " + modelo.getRowCount());
+}
+
     public ProcesoAsignacionAlumnos() {
         initComponents();
         llenadoDeCombosAlumnos();
         llenadoDeCombosCiclos();
+        llenadoDeTablas();
 
 
     }
@@ -86,6 +173,7 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
 
+        setBorder(null);
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -93,6 +181,7 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
         setTitle("Asignacion de Cursos");
         setVisible(true);
 
+        jcbCiclos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ciclo" }));
         jcbCiclos.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcbCiclosItemStateChanged(evt);
@@ -104,28 +193,35 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
             }
         });
 
+        jcbAlumnos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Alumno" }));
+        jcbAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbAlumnosActionPerformed(evt);
+            }
+        });
+
         tblCursosAsignados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Cursos Asignados"
             }
         ));
         jScrollPane1.setViewportView(tblCursosAsignados);
 
         tblCursosAAsignar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null},
+                {null},
+                {null},
+                {null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Cursos a Asignar"
             }
         ));
         jScrollPane2.setViewportView(tblCursosAAsignar);
@@ -135,48 +231,48 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jcbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(469, 469, 469))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(246, 246, 246)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(27, 27, 27)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(815, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)
+                        .addComponent(jcbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(161, Short.MAX_VALUE)
+                    .addComponent(jcbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(16, 16, 16)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbCiclosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbCiclosItemStateChanged
-
+        llenadoDeTablas();
+        
     }//GEN-LAST:event_jcbCiclosItemStateChanged
 
     private void jcbCiclosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCiclosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbCiclosActionPerformed
+
+    private void jcbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbAlumnosActionPerformed
 
 /**/
 
