@@ -67,84 +67,67 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
 public void llenadoDeTablas() {
     DefaultTableModel modelo = new DefaultTableModel();
     modelo.addColumn("Curso a Asignar");
-
     CursosDAO cursoDAO = new CursosDAO();
     List<Cursos> cursos = cursoDAO.select();
-
-    // Verificar que la lista de cursos no esté vacía
-    System.out.println("Cursos obtenidos: " + cursos.size());
-
     tblCursosAAsignar.setModel(modelo);
     String[] dato = new String[1];
 
     String cicloSeleccionado = (String) jcbCiclos.getSelectedItem();
     
-    // Verificar el ciclo seleccionado
-    System.out.println("Ciclo seleccionado: " + cicloSeleccionado);
 
-    int codigoInicio = 0;
-    int codigoFin = 0;
+    int primero = 0;
+    int ultimo = 0;
 
     switch (cicloSeleccionado) {
         case "1 Ciclo":
-            codigoInicio = 101;
-            codigoFin = 105;
+            primero = 101;
+            ultimo = 105;
             break;
         case "2 Ciclo":
-            codigoInicio = 106;
-            codigoFin = 110;
+            primero = 106;
+            ultimo = 110;
             break;
         case "3 Ciclo":
-            codigoInicio = 111;
-            codigoFin = 115;
+            primero = 111;
+            ultimo = 115;
             break;
         case "4 Ciclo":
-            codigoInicio = 116;
-            codigoFin = 120;
+            primero = 116;
+            ultimo = 120;
             break;
         case "5 Ciclo":
-            codigoInicio = 121;
-            codigoFin = 125;
+            primero = 121;
+            ultimo = 125;
             break;
         case "6 Ciclo":
-            codigoInicio = 126;
-            codigoFin = 130;
+            primero = 126;
+            ultimo = 130;
             break;
         case "7 Ciclo":
-            codigoInicio = 131;
-            codigoFin = 135;
+            primero = 131;
+            ultimo = 135;
             break;
         case "8 Ciclo":
-            codigoInicio = 136;
-            codigoFin = 140;
+            primero = 136;
+            ultimo = 140;
             break;
         case "9 Ciclo":
-            codigoInicio = 141;
-            codigoFin = 145;
+            primero = 141;
+            ultimo = 145;
             break;
         case "10 Ciclo":
-            codigoInicio = 146;
-            codigoFin = 150;
+            primero = 146;
+            ultimo = 150;
             break;
-        default:
-            System.out.println("Ciclo no válido seleccionado.");
     }
-
-    if (codigoInicio > 0 && codigoFin > 0) {
         for (Cursos curso : cursos) {
             int codigoCurso = Integer.parseInt(curso.getCodigo_curso());
-            if (codigoCurso >= codigoInicio && codigoCurso <= codigoFin) {
+            if (codigoCurso >= primero && codigoCurso <= ultimo) {
                 dato[0] = curso.getNombre_curso();
                 modelo.addRow(dato);
-                System.out.println("Curso agregado: " + curso.getNombre_curso());
             }
         }
-    } else {
-        System.out.println("No se han definido los códigos de inicio y fin correctamente.");
-    }
 
-    // Verificar el número de filas añadidas al modelo
-    System.out.println("Filas añadidas al modelo: " + modelo.getRowCount());
 }
 
     public ProcesoAsignacionAlumnos() {
@@ -169,6 +152,10 @@ public void llenadoDeTablas() {
         tblCursosAsignados = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCursosAAsignar = new javax.swing.JTable();
+        agregarUno = new javax.swing.JButton();
+        agregarTodos = new javax.swing.JButton();
+        quitarUno = new javax.swing.JButton();
+        quitarTodos = new javax.swing.JButton();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -202,10 +189,7 @@ public void llenadoDeTablas() {
 
         tblCursosAsignados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+
             },
             new String [] {
                 "Cursos Asignados"
@@ -226,23 +210,56 @@ public void llenadoDeTablas() {
         ));
         jScrollPane2.setViewportView(tblCursosAAsignar);
 
+        agregarUno.setText(">");
+        agregarUno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarUnoActionPerformed(evt);
+            }
+        });
+
+        agregarTodos.setText(">>");
+        agregarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarTodosActionPerformed(evt);
+            }
+        });
+
+        quitarUno.setText("<");
+        quitarUno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitarUnoActionPerformed(evt);
+            }
+        });
+
+        quitarTodos.setText("<<");
+        quitarTodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitarTodosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
                         .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(jcbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jcbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(quitarTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(agregarTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(agregarUno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(quitarUno, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(57, 57, 57)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,11 +268,23 @@ public void llenadoDeTablas() {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(agregarUno)
+                        .addGap(18, 18, 18)
+                        .addComponent(agregarTodos)
+                        .addGap(18, 18, 18)
+                        .addComponent(quitarUno)
+                        .addGap(18, 18, 18)
+                        .addComponent(quitarTodos)
+                        .addGap(86, 86, 86))))
         );
 
         pack();
@@ -274,15 +303,66 @@ public void llenadoDeTablas() {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbAlumnosActionPerformed
 
+    private void agregarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarUnoActionPerformed
+        int selectedRow = tblCursosAAsignar.getSelectedRow();
+
+            DefaultTableModel modelAsignar = (DefaultTableModel) tblCursosAAsignar.getModel();
+            DefaultTableModel modelAsignados = (DefaultTableModel) tblCursosAsignados.getModel();
+            
+            String curso = (String) modelAsignar.getValueAt(selectedRow, 0);
+            modelAsignar.removeRow(selectedRow);
+            modelAsignados.addRow(new Object[]{curso});
+    }//GEN-LAST:event_agregarUnoActionPerformed
+
+    private void agregarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarTodosActionPerformed
+        DefaultTableModel modelAsignar = (DefaultTableModel) tblCursosAAsignar.getModel();
+        DefaultTableModel modelAsignados = (DefaultTableModel) tblCursosAsignados.getModel();
+        
+        int rowCount = modelAsignar.getRowCount();
+        for (int i = 0; i < rowCount; i++) {
+            String curso = (String) modelAsignar.getValueAt(0, 0);  // Siempre el primer elemento
+            modelAsignar.removeRow(0);
+            modelAsignados.addRow(new Object[]{curso});
+        }
+    }//GEN-LAST:event_agregarTodosActionPerformed
+
+    private void quitarUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarUnoActionPerformed
+        int selectedRow = tblCursosAsignados.getSelectedRow();
+ 
+            DefaultTableModel modelAsignados = (DefaultTableModel) tblCursosAsignados.getModel();
+            DefaultTableModel modelAsignar = (DefaultTableModel) tblCursosAAsignar.getModel();
+            
+            String curso = (String) modelAsignados.getValueAt(selectedRow, 0);
+            modelAsignados.removeRow(selectedRow);
+            modelAsignar.addRow(new Object[]{curso});
+        
+    }//GEN-LAST:event_quitarUnoActionPerformed
+
+    private void quitarTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarTodosActionPerformed
+        DefaultTableModel modelAsignados = (DefaultTableModel) tblCursosAsignados.getModel();
+        DefaultTableModel modelAsignar = (DefaultTableModel) tblCursosAAsignar.getModel();
+        
+        int rowCount = modelAsignados.getRowCount();
+        for (int i = 0; i < rowCount; i++) {
+            String curso = (String) modelAsignados.getValueAt(0, 0);  // Siempre el primer elemento
+            modelAsignados.removeRow(0);
+            modelAsignar.addRow(new Object[]{curso});
+        }
+    }//GEN-LAST:event_quitarTodosActionPerformed
+
 /**/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregarTodos;
+    private javax.swing.JButton agregarUno;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> jcbAlumnos;
     private javax.swing.JComboBox<String> jcbCiclos;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
+    private javax.swing.JButton quitarTodos;
+    private javax.swing.JButton quitarUno;
     private javax.swing.JTable tblCursosAAsignar;
     private javax.swing.JTable tblCursosAsignados;
     // End of variables declaration//GEN-END:variables

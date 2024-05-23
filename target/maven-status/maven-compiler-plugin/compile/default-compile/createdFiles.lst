@@ -7,6 +7,7 @@ vista\MantenimientoCursos$4.class
 vista\MdiGeneral.class
 vista\MantenimientoMaestros$1.class
 vista\MantenimientoCarreras.class
+vista\ProcesoAsignacionAlumnos$7.class
 vista\MantenimientoCarreras$1.class
 vista\MantenimientoCarreras$7.class
 vista\MantenimientoCursos$1.class
@@ -15,6 +16,7 @@ vista\MantenimientoMaestros$7.class
 modelo\CursosDAO.class
 vista\MantenimientoSecciones$6.class
 vista\MantenimientoCarreras$4.class
+vista\ProcesoAsignacionAlumnos$4.class
 vista\MantenimientoAlumnos.class
 vista\MantenimientoSecciones$3.class
 vista\frmMantenimientoBitacora$1.class
@@ -32,6 +34,7 @@ vista\frmMantenimientoBitacora$2.class
 vista\frmComboBoxs$1.class
 modelo\UsuarioDAO.class
 vista\MdiGeneral$1.class
+vista\ProcesoAsignacionAlumnos$5.class
 modelo\CarrerasDAO.class
 controlador\Maestros.class
 vista\MantenimientoCarreras$6.class
@@ -49,6 +52,7 @@ controlador\Empleado.class
 modelo\daoBitacora.class
 vista\MantenimientoCursos$2.class
 vista\MantenimientoMaestros$8.class
+vista\ProcesoAsignacionAlumnos$6.class
 vista\MdiGeneral$6.class
 vista\Login$4.class
 vista\MantenimientoAlumnos$5.class
