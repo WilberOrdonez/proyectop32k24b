@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 vista\MantenimientoMaestros$4.class
 controlador\Cursos.class
 vista\MantenimientoFacultades$4.class
 vista\MantenimientoFacultades$1.class
 vista\MantenimientoSecciones$9.class
-vista\Prueba2$2.class
 vista\MantenimientoCursos$4.class
 vista\MdiGeneral.class
 vista\MantenimientoMaestros$1.class
@@ -31,7 +28,6 @@ vista\frmMantenimientoBitacora.class
 vista\MantenimientoAlumnos$6.class
 controlador\Carreras.class
 modelo\FacultadesDAO.class
-vista\Pruebaventana$2.class
 vista\frmMantenimientoBitacora$2.class
 vista\frmComboBoxs$1.class
 modelo\UsuarioDAO.class
@@ -46,7 +42,6 @@ vista\MantenimientoSecciones$1.class
 modelo\MaestrosDAO.class
 vista\MantenimientoFacultades$2.class
 vista\MantenimientoMaestros$2.class
-vista\Prueba2.class
 vista\MantenimientoCursos$3.class
 modelo\AlumnosDAO.class
 vista\MantenimientoSecciones$8.class
@@ -55,7 +50,6 @@ modelo\daoBitacora.class
 vista\MantenimientoCursos$2.class
 vista\MantenimientoMaestros$8.class
 vista\MdiGeneral$6.class
-vista\Pruebaventana$1.class
 vista\Login$4.class
 vista\MantenimientoAlumnos$5.class
 vista\MantenimientoSecciones$2.class
@@ -86,13 +80,11 @@ vista\MantenimientoCarreras$8.class
 vista\MantenimientoMaestros$3.class
 vista\MantenimientoSecciones$4.class
 vista\MdiGeneral$8.class
-vista\Pruebaventana.class
 controlador\clsBitacora.class
 vista\MantenimientoFacultades$6.class
 vista\MantenimientoCarreras$2.class
 vista\MantenimientoMaestros$6.class
 vista\frmMantenimientoBitacora$5.class
-vista\Prueba2$1.class
 vista\MdiGeneral$4.class
 vista\MantenimientoCursos$6.class
 controlador\Seccion.class
@@ -104,7 +96,5 @@ vista\MantenimientoSecciones$5.class
 vista\MantenimientoAlumnos$2.class
 vista\MdiGeneral$9.class
 controlador\Alumnos.class
-vista\MantenimientoAlumnos$8.class
 modelo\EmpleadoDAO.class
 vista\MdiGeneral$3.class
->>>>>>> combosanidados
