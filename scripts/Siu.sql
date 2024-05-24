@@ -1,4 +1,4 @@
-DROP DATABASE siu;
+-- DROP DATABASE siu;
 CREATE DATABASE siu;
 USE siu;
 CREATE TABLE IF NOT EXISTS usuario (
@@ -196,3 +196,13 @@ CREATE TABLE Tesoreria (
     FOREIGN KEY (id_tipo_pago) REFERENCES TiposDePagos(id_tipo_pago),
     FOREIGN KEY (id_moneda) REFERENCES tiposdemoneda(id_moneda)
 )ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
+-- Table detMaestroCursos
+-- -----------------------------------------------------
+CREATE TABLE detMaestroCursos
+ (
+	codigo_maestro VARCHAR(15),
+	codigo_curso VARCHAR(45),
+	FOREIGN KEY (codigo_maestro) references maestros (codigo_maestro),
+	FOREIGN KEY (codigo_curso) references cursos (codigo_curso)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
