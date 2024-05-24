@@ -201,8 +201,23 @@ CREATE TABLE Tesoreria (
 -- -----------------------------------------------------
 CREATE TABLE detMaestroCursos
  (
-	codigo_maestro VARCHAR(15),
-	codigo_curso VARCHAR(45),
+	codigo_maestro VARCHAR(5),
+	codigo_curso VARCHAR(5),
 	FOREIGN KEY (codigo_maestro) references maestros (codigo_maestro),
 	FOREIGN KEY (codigo_curso) references cursos (codigo_curso)
 ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE documentosCursos
+(
+  codigo_documento VARCHAR(5),
+  codigo_curso VARCHAR(5),
+  nombre_documento VARCHAR(25),
+  entregado VARCHAR(1),
+  PRIMARY KEY (codigo_documento),
+  FOREIGN KEY (codigo_curso) REFERENCES cursos(codigo_curso)
+ ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+ 
+ 
+ 
+ 

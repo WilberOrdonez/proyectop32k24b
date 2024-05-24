@@ -4,11 +4,10 @@
 
 package vista;
 
-import modelo.EmpleadoDAO;
 import modelo.CursosDAO;
 import modelo.SeccionDAO;
-import controlador.Empleado;
 import controlador.Cursos;
+import controlador.Maestros;
 import controlador.Seccion;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -18,54 +17,50 @@ import java.util.Set;
 
 import controlador.clsBitacora;
 import controlador.clsUsuarioConectado;
+import controlador.documentosCursos;
+import controlador.tablaCursos;
+import modelo.DetMaestroCursosDAO;
+import modelo.MaestrosDAO;
 
 
 /**
  *
- * @author visitante
+ * 
  */
-public class RegistroMaestros extends javax.swing.JInternalFrame {
+public final class RegistroMaestros extends javax.swing.JInternalFrame {
     
         int codigoAplicacion = 2020;
 
     clsBitacora Auditoria = new clsBitacora();
 
     public void llenadoDeCombos() {
-       /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
-        List<Empleado> empleados = empleadoDAO.select();
-        cbox_empleado.addItem("Seleccione una opción");
-        for (int i = 0; i < empleados.size(); i++) {
-            cbox_empleado.addItem(empleados.get(i).getNombreEmpleado());
-        }*/
+        MaestrosDAO ObjMaestro = new MaestrosDAO();
+        List<Maestros> maestros = ObjMaestro.select();
+        cmbMaestros.addItem("Seleccione una opción");
+        for (int i = 0; i < maestros.size(); i++) {
+            cmbMaestros.addItem(maestros.get(i).getNombre_maestro());
+        }
     }
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID Seccion");
-        modelo.addColumn("nombre");
+        modelo.addColumn("Nombre Maestro");
+        modelo.addColumn("Nombre curso");
         modelo.addColumn("Estatus");
-        SeccionDAO seccionDAO = new SeccionDAO();
-        List<Seccion> Seccion = seccionDAO.select();
-        tablaVendedores.setModel(modelo);
+        DetMaestroCursosDAO listInnerDocument = new DetMaestroCursosDAO();
+        List<tablaCursos> lista = listInnerDocument.fillTable();
+        tblDocumentos.setModel(modelo);
         String[] dato = new String[3];
-        for (int i = 0; i < Seccion.size(); i++) {
-            dato[0] = Seccion.get(i).getCodigo_seccion();
-            dato[1] = Seccion.get(i).getNombre_seccion();
-            dato[2] = Seccion.get(i).getEstatus_seccion();
+        for (int i = 0; i < lista.size(); i++) {
+            
+            dato[0] = lista.get(i).getNombreMaestro();
+            dato[1] = lista.get(i).getNombreCurso();
+            dato[2] = lista.get(i).getEstado();
             //System.out.println("vendedor:" + vendedores);
             modelo.addRow(dato);
         }
     }
 
-    public void buscarVendedor() {
-        Seccion seccionAConsultar = new Seccion();
-        SeccionDAO seccionDAO = new SeccionDAO();
-        seccionAConsultar.setCodigo_seccion((txtbuscado.getText()));
-        seccionAConsultar = seccionDAO.query(seccionAConsultar);
-        txtCodigo.setText(seccionAConsultar.getCodigo_seccion());
-        txtNombre.setText(seccionAConsultar.getNombre_seccion());
-        txtEstatus.setText(seccionAConsultar.getEstatus_seccion());
-    }
 
     public RegistroMaestros() {
         initComponents();
@@ -84,25 +79,21 @@ public class RegistroMaestros extends javax.swing.JInternalFrame {
 
         lb2 = new javax.swing.JLabel();
         lbusu = new javax.swing.JLabel();
-        btnEliminar = new javax.swing.JButton();
-        btnRegistrar = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        txtbuscado = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaVendedores = new javax.swing.JTable();
+        tblDocumentos = new javax.swing.JTable();
         lb = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbMaestros = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        chkActa = new javax.swing.JCheckBox();
+        chkRepNotas = new javax.swing.JCheckBox();
+        chkPlanificacion = new javax.swing.JCheckBox();
+        chkExamen = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbCursos = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -113,27 +104,6 @@ public class RegistroMaestros extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Registro Maestros");
         setVisible(true);
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnRegistrar.setText("Registrar");
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
-            }
-        });
-
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,24 +119,24 @@ public class RegistroMaestros extends javax.swing.JInternalFrame {
             }
         });
 
-        tablaVendedores.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        tablaVendedores.setModel(new javax.swing.table.DefaultTableModel(
+        tblDocumentos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        tblDocumentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo Maestro", "Nombre Maestro", "Codigo Curso", "Nombre Curso", "Estado"
+                "Nombre Maestro", "Nombre Curso", "Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tablaVendedores);
+        jScrollPane1.setViewportView(tblDocumentos);
 
         lb.setForeground(new java.awt.Color(204, 204, 204));
         lb.setText(".");
@@ -182,78 +152,72 @@ public class RegistroMaestros extends javax.swing.JInternalFrame {
 
         jLabel2.setText("REQUISITOS");
 
-        jCheckBox1.setText("Acta");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        chkActa.setText("Acta");
+        chkActa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                chkActaActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("jCheckBox2");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        chkRepNotas.setText("Reporte de notas");
+        chkRepNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                chkRepNotasActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setText("jCheckBox3");
+        chkPlanificacion.setText("Planificacion");
 
-        jCheckBox4.setText("Examenes");
+        chkExamen.setText("Examenes");
 
         jLabel3.setText("CURSOS:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(88, 88, 88)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(21, 21, 21)
-                                .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(cmbCursos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cmbMaestros, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox4)
+                                    .addComponent(chkExamen)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jCheckBox1)
-                                                .addGap(96, 96, 96)))
+                                        .addComponent(chkActa)
+                                        .addGap(96, 96, 96)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox3)
-                                            .addComponent(jCheckBox2)
-                                            .addComponent(txtbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                        .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE)
+                                            .addComponent(chkPlanificacion)
+                                            .addComponent(chkRepNotas))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(50, 50, 50)
+                                            .addComponent(jLabel2))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(113, 113, 113))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lb, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(555, 555, 555))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,137 +227,97 @@ public class RegistroMaestros extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lb)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbMaestros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmbCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBox1)
+                                .addComponent(chkActa)
                                 .addGap(18, 18, 18)
-                                .addComponent(jCheckBox4))
+                                .addComponent(chkExamen))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
-                                .addComponent(jCheckBox2)
+                                .addComponent(chkRepNotas)
                                 .addGap(18, 18, 18)
-                                .addComponent(jCheckBox3)))
+                                .addComponent(chkPlanificacion)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRegistrar)
-                            .addComponent(btnEliminar)
-                            .addComponent(btnModificar))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtbuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscar)
+                            .addComponent(btnModificar)
                             .addComponent(btnLimpiar))
-                        .addGap(19, 19, 19))
+                        .addGap(60, 60, 60))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
-                        .addContainerGap(31, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
-        SeccionDAO seccionDAO = new SeccionDAO();
-        Seccion seccionAEliminar = new Seccion();
-        seccionAEliminar.setCodigo_seccion(txtbuscado.getText());
-        seccionDAO.delete(seccionAEliminar);
-        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "DEL");
-        llenadoDeTablas();
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        SeccionDAO seccionDAO = new SeccionDAO();
-        Seccion seccionAInsertar = new Seccion();
-        seccionAInsertar.setCodigo_seccion(txtCodigo.getText());
-        
-        seccionAInsertar.setNombre_seccion(txtNombre.getText());
-        seccionAInsertar.setEstatus_seccion(txtEstatus.getText());
-        seccionDAO.insert(seccionAInsertar);
-        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
-        llenadoDeTablas();
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "SRC");
-        buscarVendedor();
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-//        // TODO add your handling code here:
-        SeccionDAO seccionDAO = new SeccionDAO();
-        Seccion seccionAActualizar = new Seccion();
-        seccionAActualizar.setCodigo_seccion(txtbuscado.getText());
-        seccionAActualizar.setNombre_seccion(txtNombre.getText());
-        seccionAActualizar.setEstatus_seccion(txtEstatus.getText());
-        seccionDAO.update(seccionAActualizar);
-        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
-        llenadoDeTablas();
+////        // TODO add your handling code here:
+//        SeccionDAO seccionDAO = new SeccionDAO();
+//        Seccion seccionAActualizar = new Seccion();
+//        seccionAActualizar.setCodigo_seccion(txtbuscado.getText());
+//       
+//        seccionDAO.update(seccionAActualizar);
+//        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "UPD");
+//        llenadoDeTablas();
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        txtCodigo.setText("");
-        txtNombre.setText("");
-        txtEstatus.setText("");
-        txtbuscado.setText("");
-        btnRegistrar.setEnabled(true);
-        btnModificar.setEnabled(true);
-        btnEliminar.setEnabled(true);
-
-        // TODO add your handling code here:
+//      
+//        txtbuscado.setText("");
+//        btnRegistrar.setEnabled(true);
+//        btnModificar.setEnabled(true);
+//        btnEliminar.setEnabled(true);
+//
+//        // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        try {
-            if ((new File("src\\main\\java\\ayudas\\AyudaSecciones.chm")).exists()) {
-                Process p = Runtime
-                        .getRuntime()
-                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\ayudas\\AyudaSecciones.chm");
-                p.waitFor();
-            } else {
-                System.out.println("La ayuda no Fue encontrada");
-            }
-            System.out.println("Correcto");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+//        try {
+//            if ((new File("src\\main\\java\\ayudas\\AyudaSecciones.chm")).exists()) {
+//                Process p = Runtime
+//                        .getRuntime()
+//                        .exec("rundll32 url.dll,FileProtocolHandler src\\main\\java\\ayudas\\AyudaSecciones.chm");
+//                p.waitFor();
+//            } else {
+//                System.out.println("La ayuda no Fue encontrada");
+//            }
+//            System.out.println("Correcto");
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void chkActaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkActaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_chkActaActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void chkRepNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkRepNotasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_chkRepNotasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JCheckBox chkActa;
+    private javax.swing.JCheckBox chkExamen;
+    private javax.swing.JCheckBox chkPlanificacion;
+    private javax.swing.JCheckBox chkRepNotas;
+    private javax.swing.JComboBox<String> cmbCursos;
+    private javax.swing.JComboBox<String> cmbMaestros;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -401,7 +325,6 @@ public class RegistroMaestros extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lb;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
-    private javax.swing.JTable tablaVendedores;
-    private javax.swing.JTextField txtbuscado;
+    private javax.swing.JTable tblDocumentos;
     // End of variables declaration//GEN-END:variables
 }
