@@ -116,6 +116,7 @@ modelo\SeccionDAO.class
 controlador\Usuario.class
 vista\MantenimientoFacultades$8.class
 vista\ProcesoAsignacionAlumnos$8.class
+controlador\Secciones.class
 vista\MantenimientoCarreras$5.class
 vista\MantenimientoCarreras$8.class
 vista\MantenimientoBancos$3.class
@@ -130,6 +131,7 @@ vista\MantenimientoCarreras$2.class
 vista\MantenimientoMaestros$6.class
 vista\MantenimientoPagos$7.class
 vista\MantenimientoCiclos$2.class
+modelo\SeccionesDAO.class
 vista\MantenimientoBancos$2.class
 vista\MantenimientoPagos$3.class
 vista\frmMantenimientoBitacora$5.class

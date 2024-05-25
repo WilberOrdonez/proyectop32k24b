@@ -7,54 +7,54 @@ package controlador;
  */
  public class Secciones
  {
-    private String codigo_jornada;
-    private String nombre_jornada;
-    private String estatus_jornada;
+    private String codigo_seccion;
+    private String nombre_seccion;
+    private String estatus_seccion;
 
     public Secciones() {
     }
 
     @Override
     public String toString() {
-        return "Jornadas{" + "codigo_jornada=" + codigo_jornada + ", nombre_jornada=" + nombre_jornada + ", estatus_jornada=" + estatus_jornada + '}';
+        return "Seccions{" + "codigo_seccion=" + codigo_seccion + ", nombre_seccion=" + nombre_seccion + ", estatus_seccion=" + estatus_seccion + '}';
     }
 
-    public String getCodigo_jornada() {
-        return codigo_jornada;
+    public String getCodigo_seccion() {
+        return codigo_seccion;
     }
 
-    public void setCodigo_jornada(String codigo_jornada) {
-        this.codigo_jornada = codigo_jornada;
+    public void setCodigo_seccion(String codigo_seccion) {
+        this.codigo_seccion = codigo_seccion;
     }
 
-    public String getNombre_jornada() {
-        return nombre_jornada;
+    public String getNombre_seccion() {
+        return nombre_seccion;
     }
 
-    public void setNombre_jornada(String nombre_jornada) {
-        this.nombre_jornada = nombre_jornada;
+    public void setNombre_seccion(String nombre_seccion) {
+        this.nombre_seccion = nombre_seccion;
     }
 
-    public String getEstatus_jornada() {
-        return estatus_jornada;
+    public String getEstatus_seccion() {
+        return estatus_seccion;
     }
 
-    public void setEstatus_jornada(String estatus_jornada) {
-        this.estatus_jornada = estatus_jornada;
+    public void setEstatus_seccion(String estatus_seccion) {
+        this.estatus_seccion = estatus_seccion;
     }
 
-    public Secciones(String codigo_jornada, String nombre_jornada) {
-        this.codigo_jornada = codigo_jornada;
-        this.nombre_jornada = nombre_jornada;
+    public Secciones(String codigo_jornada, String nombre_seccion) {
+        this.codigo_seccion = codigo_seccion;
+        this.nombre_seccion = nombre_seccion;
     }
 
-    public Secciones(String codigo_jornada) {
-        this.codigo_jornada = codigo_jornada;
+    public Secciones(String codigo_seccion) {
+        this.codigo_seccion = codigo_seccion;
     }
 
-    public Secciones(String codigo_jornada, String nombre_jornada, String estatus_jornada) {
-        this.codigo_jornada = codigo_jornada;
-        this.nombre_jornada = nombre_jornada;
-        this.estatus_jornada = estatus_jornada;
+    public Secciones(String codigo_seccion, String nombre_seccion, String estatus_seccion) {
+        this.codigo_seccion = codigo_seccion;
+        this.nombre_seccion = nombre_seccion;
+        this.estatus_seccion = estatus_seccion;
     }
  }
