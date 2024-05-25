@@ -47,6 +47,7 @@ public class MdiGeneral extends javax.swing.JFrame {
         mnuProcesos = new javax.swing.JMenu();
         ProcesosAlumnos = new javax.swing.JMenu();
         ProcesosAlumnosAsignCursos = new javax.swing.JMenuItem();
+        InscripcionAlumno = new javax.swing.JMenuItem();
         mnuReportes = new javax.swing.JMenu();
         mnuSeguridad = new javax.swing.JMenu();
         mnuSeguridadBitacora = new javax.swing.JMenuItem();
@@ -148,6 +149,11 @@ public class MdiGeneral extends javax.swing.JFrame {
         mnuProcesos.setText("Procesos");
 
         ProcesosAlumnos.setText("Alumnos");
+        ProcesosAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProcesosAlumnosActionPerformed(evt);
+            }
+        });
 
         ProcesosAlumnosAsignCursos.setText("Asignacion Cursos");
         ProcesosAlumnosAsignCursos.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +162,14 @@ public class MdiGeneral extends javax.swing.JFrame {
             }
         });
         ProcesosAlumnos.add(ProcesosAlumnosAsignCursos);
+
+        InscripcionAlumno.setText("Inscripcion");
+        InscripcionAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InscripcionAlumnoActionPerformed(evt);
+            }
+        });
+        ProcesosAlumnos.add(InscripcionAlumno);
 
         mnuProcesos.add(ProcesosAlumnos);
 
@@ -278,6 +292,19 @@ public class MdiGeneral extends javax.swing.JFrame {
     
     }//GEN-LAST:event_ProcesosAlumnosAsignCursosActionPerformed
 
+    private void ProcesosAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcesosAlumnosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProcesosAlumnosActionPerformed
+
+    private void InscripcionAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InscripcionAlumnoActionPerformed
+        // TODO add your handling code here:
+        subProcesoAlumnos ventana = new subProcesoAlumnos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    }//GEN-LAST:event_InscripcionAlumnoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -314,6 +341,7 @@ public class MdiGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem InscripcionAlumno;
     private javax.swing.JMenu ProcesosAlumnos;
     private javax.swing.JMenuItem ProcesosAlumnosAsignCursos;
     private javax.swing.JDesktopPane jDesktopPane1;

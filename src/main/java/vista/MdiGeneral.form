@@ -108,6 +108,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alumnos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProcesosAlumnosActionPerformed"/>
+              </Events>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="ProcesosAlumnosAsignCursos">
                   <Properties>
@@ -115,6 +118,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProcesosAlumnosAsignCursosActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="InscripcionAlumno">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Inscripcion"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InscripcionAlumnoActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>

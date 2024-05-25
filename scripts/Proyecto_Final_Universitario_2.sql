@@ -214,3 +214,15 @@ CREATE TABLE IF NOT EXISTS bitacora (
     FOREIGN KEY (usuid) references usuario (id_usuario)
 ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE subalumnos
+ (
+  certificado VARCHAR(15),
+  nombre_subalumno VARCHAR(45),
+  titulo_alumno VARCHAR(45),
+  evubi_alumno VARCHAR(45),
+  foto_alumno VARCHAR(20),
+  DPI_alumno VARCHAR(15),
+  formulario_alumno VARCHAR(5),
+  comins_alumno VARCHAR(10),
+  PRIMARY KEY (DPI_alumno)
+) ENGINE = InnoDB DEFAULT CHARSET=latin1;
