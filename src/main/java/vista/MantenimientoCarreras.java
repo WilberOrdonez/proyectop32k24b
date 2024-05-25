@@ -336,6 +336,7 @@ public class MantenimientoCarreras extends javax.swing.JInternalFrame {
         carreraAInsertar.setCodigo_facultad(txtCodigoFacultad.getText());
         carreraAInsertar.setEstatus_carrera(txtEstatus.getText());
         carreraDAO.insert(carreraAInsertar);
+        
         Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "INS");
         llenadoDeTablas();      
     }//GEN-LAST:event_btnRegistrarActionPerformed

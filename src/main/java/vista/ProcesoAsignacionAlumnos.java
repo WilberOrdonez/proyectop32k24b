@@ -5,29 +5,52 @@
 package vista;
 import modelo.AlumnosDAO;
 import controlador.Alumnos;
+import controlador.AsignacionAlumnos;
+import modelo.CarrerasDAO;
+import controlador.Carreras;
 import modelo.CiclosDAO;
 import controlador.Ciclos;
 import modelo.CursosDAO;
+import controlador.Sedes;
+import modelo.SedesDAO;
+import controlador.Jornadas;
+import modelo.JornadasDAO;
 import modelo.SeccionDAO;
 import controlador.Cursos;
 import controlador.Seccion;
+import controlador.clsUsuarioConectado;
 import java.awt.event.ItemEvent;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.*;
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
+import modelo.AsignacionAlumnosDAO;
+import controlador.clsBitacora;
+import controlador.clsUsuarioConectado;
 /**
  *
  * @author visitante
  */
 public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
 
+int codigoAplicacion = 2111;
 
+
+        clsBitacora Auditoria = new clsBitacora();
+    public void llenadoDeCombos() {
+       /*EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+        List<Empleado> empleados = empleadoDAO.select();
+        cbox_empleado.addItem("Seleccione una opción");
+        for (int i = 0; i < empleados.size(); i++) {
+            cbox_empleado.addItem(empleados.get(i).getNombreEmpleado());
+        }*/
+    }
    
     public void llenadoDeCombosCiclos() {
       CiclosDAO ciclosDAO = new CiclosDAO();
@@ -40,13 +63,40 @@ public class ProcesoAsignacionAlumnos extends javax.swing.JInternalFrame {
         
 }
     
+public void llenadoDeCombosCarreras() {
+        CarrerasDAO carrerasDAO = new CarrerasDAO();
+        List<Carreras> carreras = carrerasDAO.select();
+        for (Carreras carrera : carreras) {
+            String item = carrera.getCodigo_carrera();
+            jcbCarreras.addItem(item);
+        }
+    }
+
+public void llenadoDeCombosSedes() {
+        SedesDAO sedesDAO = new SedesDAO();
+        List<Sedes> sedes = sedesDAO.select();
+        for (Sedes sede : sedes) {
+            String item = sede.getCodigo_sede();
+            jcbSedes.addItem(item);
+        }
+    }
+
+public void llenadoDeCombosJornadas() {
+        JornadasDAO jornadasDAO = new JornadasDAO();
+        List<Jornadas> jornadas = jornadasDAO.select();
+        for (Jornadas jornada : jornadas) {
+            String item = jornada.getCodigo_jornada();
+            jcbJornadas.addItem(item);
+        }
+    }
     
+
 
         public void llenadoDeCombosAlumnos() {
         AlumnosDAO alumnosDAO = new AlumnosDAO();
         List<Alumnos> alumnos = alumnosDAO.select();
         for (Alumnos alumno : alumnos) {
-            String item = alumno.getCarnet_alumno() + "      " + alumno.getNombre_alumno();
+            String item = alumno.getCarnet_alumno();
             jcbAlumnos.addItem(item);
         }
     }
@@ -133,8 +183,11 @@ public void llenadoDeTablas() {
     public ProcesoAsignacionAlumnos() {
         initComponents();
         llenadoDeCombosAlumnos();
+        llenadoDeCombosCarreras();
         llenadoDeCombosCiclos();
         llenadoDeTablas();
+        llenadoDeCombosSedes();
+        llenadoDeCombosJornadas();
 
 
     }
@@ -156,6 +209,10 @@ public void llenadoDeTablas() {
         agregarTodos = new javax.swing.JButton();
         quitarUno = new javax.swing.JButton();
         quitarTodos = new javax.swing.JButton();
+        registrar = new javax.swing.JButton();
+        jcbCarreras = new javax.swing.JComboBox<>();
+        jcbSedes = new javax.swing.JComboBox<>();
+        jcbJornadas = new javax.swing.JComboBox<>();
 
         lb2.setForeground(new java.awt.Color(204, 204, 204));
         lb2.setText(".");
@@ -238,6 +295,24 @@ public void llenadoDeTablas() {
             }
         });
 
+        registrar.setText("Registrar");
+        registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarActionPerformed(evt);
+            }
+        });
+
+        jcbCarreras.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Carrera" }));
+        jcbCarreras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbCarrerasActionPerformed(evt);
+            }
+        });
+
+        jcbSedes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Sede" }));
+
+        jcbJornadas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Jornada" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,19 +321,31 @@ public void llenadoDeTablas() {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jcbCiclos, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(quitarTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(agregarTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(agregarUno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(quitarUno, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(57, 57, 57)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(quitarTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(agregarTodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(agregarUno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(quitarUno, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(registrar))
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jcbCarreras, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108))
+                            .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(126, 126, 126)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcbSedes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jcbCiclos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jcbJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
@@ -270,13 +357,7 @@ public void llenadoDeTablas() {
                     .addComponent(jcbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(26, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                         .addComponent(agregarUno)
                         .addGap(18, 18, 18)
                         .addComponent(agregarTodos)
@@ -284,7 +365,21 @@ public void llenadoDeTablas() {
                         .addComponent(quitarUno)
                         .addGap(18, 18, 18)
                         .addComponent(quitarTodos)
-                        .addGap(86, 86, 86))))
+                        .addGap(33, 33, 33)
+                        .addComponent(registrar)
+                        .addGap(0, 15, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jcbCarreras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcbSedes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jcbJornadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         pack();
@@ -350,6 +445,35 @@ public void llenadoDeTablas() {
         }
     }//GEN-LAST:event_quitarTodosActionPerformed
 
+    private void jcbCarrerasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCarrerasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbCarrerasActionPerformed
+
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+    
+    AsignacionAlumnosDAO asignacionAlumnosDAO = new AsignacionAlumnosDAO();
+        
+        // Obtener los valores seleccionados de los JComboBox
+    String carreraSeleccionada = (String) jcbCarreras.getSelectedItem();
+    String alumnoSeleccionado = (String) jcbAlumnos.getSelectedItem();
+    String sedeSeleccionado = (String) jcbSedes.getSelectedItem();
+    String jornadaSeleccionado = (String) jcbJornadas.getSelectedItem();
+    
+    
+        AsignacionAlumnos asignacionAlumno = new AsignacionAlumnos();
+        asignacionAlumno.setCodigo_carrera(carreraSeleccionada);
+        asignacionAlumno.setCodigo_sede(sedeSeleccionado);
+        asignacionAlumno.setCodigo_jornada(jornadaSeleccionado);
+        asignacionAlumno.setCodigo_seccion("44");
+        asignacionAlumno.setCodigo_aula("22");
+        asignacionAlumno.setCodigo_curso("423");
+        asignacionAlumno.setCarnet_alumno(alumnoSeleccionado);
+        asignacionAlumno.setNota_asignacioncursoalumno("10");
+        
+        asignacionAlumnosDAO.insert(asignacionAlumno);
+        
+    }//GEN-LAST:event_registrarActionPerformed
+
 /**/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -358,11 +482,15 @@ public void llenadoDeTablas() {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> jcbAlumnos;
+    private javax.swing.JComboBox<String> jcbCarreras;
     private javax.swing.JComboBox<String> jcbCiclos;
+    private javax.swing.JComboBox<String> jcbJornadas;
+    private javax.swing.JComboBox<String> jcbSedes;
     private javax.swing.JLabel lb2;
     private javax.swing.JLabel lbusu;
     private javax.swing.JButton quitarTodos;
     private javax.swing.JButton quitarUno;
+    private javax.swing.JButton registrar;
     private javax.swing.JTable tblCursosAAsignar;
     private javax.swing.JTable tblCursosAsignados;
     // End of variables declaration//GEN-END:variables

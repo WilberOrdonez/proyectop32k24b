@@ -29,40 +29,40 @@
             <classifier>groovydoc</classifier>
         </dependency>
         <dependency>
-            <groupId>unknown.binary</groupId>
+            <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
-            <version>SNAPSHOT</version>
+            <version>RELEASE190</version>
         </dependency>
     </dependencies>    
-<build>
-    <finalName>capas</finalName>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>3.3.0</version>
-            <configuration>            
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>           
-                <archive>
-                    <manifest>
-                        <mainClass>vista.Login</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
-            <executions>
-                <execution>
-                    <id>make-assembly</id>
-                    <phase>package</phase> 
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
-    </plugins>
-</build>
+    <build>
+        <finalName>capas</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>            
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>           
+                    <archive>
+                        <manifest>
+                            <mainClass>vista.Login</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase> 
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     <name>ProyectoUniversitario</name>
     <repositories>
         <repository>

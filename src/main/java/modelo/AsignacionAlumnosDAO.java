@@ -20,7 +20,7 @@ import java.util.Set;
 public class AsignacionAlumnosDAO {
  
     private static final String SQL_SELECT = "SELECT codigo_carrera, codigo_sede, codigo_jornada, codigo_seccion, codigo_aula, codigo_curso, carnet_alumno, nota_asignacioncursoalumno FROM asignacioncursosalumnos";
-    private static final String SQL_INSERT = "INSERT INTO asignacioncursosalumnos(codigo_carrera, codigo_sede, codigo_jornada, codigo_seccion, codigo_aula, codigo_curso, carnet_alumno, nota_asignacioncursoalumno) VALUES(?, ?, ?, ?, ?, ?, ?, ?,)";
+    private static final String SQL_INSERT = "INSERT INTO asignacioncursosalumnos(codigo_carrera, codigo_sede, codigo_jornada, codigo_seccion, codigo_aula, codigo_curso, carnet_alumno, nota_asignacioncursoalumno) VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE asignacioncursosalumnos SET codigo_carrera=?, codigo_sede=?, codigo_jornada=?, codigo_seccion=?, codigo_aula=?, codigo_curso=?, carnet_alumno=?, nota_asignacioncursoalumno=? WHERE codigo_carrera = ?";
     private static final String SQL_DELETE = "DELETE FROM asignacioncursosalumnos WHERE codigo_carrera=?";
     private static final String SQL_QUERY = "SELECT codigo_carrera, codigo_sede, codigo_jornada, codigo_seccion, codigo_aula, codigo_curso, carnet_alumno, nota_asignacioncursoalumno FROM asignacioncursosalumnos WHERE codigo_carrera = ?";

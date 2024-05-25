@@ -57,6 +57,16 @@ CREATE TABLE carreras
   FOREIGN KEY (codigo_facultad) REFERENCES facultades(codigo_facultad)
 ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
 -- -----------------------------------------------------
+-- Table `educativo`.`Ciclos`
+-- -----------------------------------------------------
+CREATE TABLE ciclos
+(
+  codigo_ciclo VARCHAR(5),
+  nombre_ciclo VARCHAR(45),
+  estatus_ciclo VARCHAR(1),
+  PRIMARY KEY (codigo_ciclo)
+ ) ENGINE = InnoDB DEFAULT CHARSET=latin1;
+-- -----------------------------------------------------
 -- Table `educativo`.`Cursos`
 -- -----------------------------------------------------
 CREATE TABLE cursos

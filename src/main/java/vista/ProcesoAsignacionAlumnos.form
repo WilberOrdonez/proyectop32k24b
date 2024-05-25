@@ -46,21 +46,38 @@
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jcbAlumnos" min="-2" pref="358" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jcbCiclos" min="-2" pref="107" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="194" max="-2" attributes="0"/>
+                      <EmptySpace pref="134" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="quitarTodos" max="32767" attributes="0"/>
+                              <Component id="agregarTodos" max="32767" attributes="0"/>
+                              <Component id="agregarUno" alignment="0" max="32767" attributes="0"/>
+                              <Component id="quitarUno" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="registrar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="194" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jcbCarreras" min="-2" pref="250" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jcbAlumnos" min="-2" pref="358" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jcbSedes" max="32767" attributes="0"/>
+                          <Component id="jcbCiclos" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="194" max="-2" attributes="0"/>
-                      <EmptySpace pref="60" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="quitarTodos" max="32767" attributes="0"/>
-                          <Component id="agregarTodos" max="32767" attributes="0"/>
-                          <Component id="agregarUno" alignment="0" max="32767" attributes="0"/>
-                          <Component id="quitarUno" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="194" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jcbJornadas" min="-2" pref="172" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
@@ -76,16 +93,8 @@
                   <Component id="jcbAlumnos" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" min="-2" pref="262" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="262" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace pref="191" max="32767" attributes="0"/>
                       <Component id="agregarUno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="agregarTodos" min="-2" max="-2" attributes="0"/>
@@ -93,9 +102,26 @@
                       <Component id="quitarUno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="quitarTodos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="registrar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jcbCarreras" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jcbSedes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jcbJornadas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane2" min="-2" pref="262" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="262" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -223,6 +249,53 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitarTodosActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="registrar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Registrar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registrarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbCarreras">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Seleccionar Carrera"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbCarrerasActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbSedes">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Seleccionar Sede"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jcbJornadas">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Seleccionar Jornada"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
