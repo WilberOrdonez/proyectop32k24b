@@ -10,10 +10,10 @@ C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\Mantenim
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\TiposDeMoneda.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\modelo\CursosDAO.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\modelo\daoBitacora.java
-C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\RegistroMaestros.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MantenimientoAlumnos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\modelo\CiclosDAO.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\modelo\TiposDeMonedaDAO.java
+C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\documentosCursos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\ProcesoAsignacionAlumnos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\Bancos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MantenimientoCursos.java
@@ -22,6 +22,7 @@ C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\modelo\Faculta
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\frmComboBoxs.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\Cursos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MantenimientoMaestros.java
+C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\tablaCursos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MantenimientoFacultades.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\modelo\SeccionDAO.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MantenimientoBancos.java
@@ -33,6 +34,7 @@ C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\Mantenim
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\clsUsuarioConectado.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\Usuario.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\TesoreriaP.java
+C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\RegistroMaestros1.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\clsBitacora.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MantenimientoPagos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MantenimientoTiposDeMoneda.java
@@ -43,6 +45,7 @@ C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MdiGener
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\modelo\UsuarioDAO.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\Alumnos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\Facultades.java
+C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\modelo\DetMaestroCursosDAO.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\vista\MantenimientoCiclos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\Ciclos.java
 C:\Users\Leticia\Documents\PROGRA 3\proyectop32k24b\src\main\java\controlador\TiposDePagos.java

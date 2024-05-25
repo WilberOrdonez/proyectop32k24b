@@ -8,6 +8,9 @@ package modelo;
  *
  * @author Leticia
  */
+
+import controlador.Cursos;
+import controlador.Maestros;
 import controlador.documentosCursos;
 import controlador.tablaCursos;
 import java.sql.Connection;
@@ -16,8 +19,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 public class DetMaestroCursosDAO {
     private static final String SQL_SELECT = "SELECT * FROM documentosCursos";
@@ -82,8 +83,8 @@ public class DetMaestroCursosDAO {
 "INNER JOIN \n" +
 "    maestros m ON m.codigo_maestro = dtm.codigo_maestro\n" +
 "GROUP BY \n" +
-"    c.nombre_curso, m.nombre_maestro;\n" +
-"");
+"    c.nombre_curso, m.nombre_maestro\n" +
+"ORDER BY c.nombre_curso");
             rs = stmt.executeQuery();
             while (rs.next()) {
                 String nombreMaestro = rs.getString("nombre_maestro");
@@ -138,10 +139,8 @@ public class DetMaestroCursosDAO {
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, Documento.getCodigoDocumento());
-            stmt.setString(2, Documento.getCodigoCurso());
-            stmt.setString(3, Documento.getNombreDocumento());
-            stmt.setString(4, Documento.getEntregado());
+            stmt.setString(1, Documento.getEntregado());
+            stmt.setString(2, Documento.getCodigoDocumento());
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizados:" + rows);
 
@@ -164,9 +163,6 @@ public class DetMaestroCursosDAO {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_DELETE);
             stmt.setString(1, Documento.getCodigoDocumento());
-            stmt.setString(2, Documento.getCodigoCurso());
-            stmt.setString(3, Documento.getNombreDocumento());
-            stmt.setString(4, Documento.getEntregado());
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {
@@ -188,11 +184,8 @@ public class DetMaestroCursosDAO {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_QUERY);
             stmt.setString(1, Documento.getCodigoDocumento());
-            stmt.setString(2, Documento.getCodigoCurso());
-            stmt.setString(3, Documento.getNombreDocumento());
-            stmt.setString(4, Documento.getEntregado());
             rs = stmt.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 String codigodocumento = rs.getString("codigo_documento");
                 String codigocurso = rs.getString("codigo_curso");
                 String nombredocumento = rs.getString("nombre_documento");
@@ -209,4 +202,14 @@ public class DetMaestroCursosDAO {
         }
         return Documento;
     }
+
+    public int actualizarEstadoCurso(Maestros maestro, Cursos curso, String nuevoEstado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
+
+
+
+
+
+
