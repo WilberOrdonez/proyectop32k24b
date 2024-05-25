@@ -45,6 +45,8 @@ public class MdiGeneral extends javax.swing.JFrame {
         mnuCatalogosMantenimientosFacultades = new javax.swing.JMenuItem();
         mnuCatalogosMantenimientosCarreras = new javax.swing.JMenuItem();
         mnuProcesos = new javax.swing.JMenu();
+        ProcesosAlumnos = new javax.swing.JMenu();
+        ProcesosAlumnosAsignCursos = new javax.swing.JMenuItem();
         mnuReportes = new javax.swing.JMenu();
         mnuSeguridad = new javax.swing.JMenu();
         mnuSeguridadBitacora = new javax.swing.JMenuItem();
@@ -144,6 +146,19 @@ public class MdiGeneral extends javax.swing.JFrame {
         jMenuBar1.add(mnuCatalogos);
 
         mnuProcesos.setText("Procesos");
+
+        ProcesosAlumnos.setText("Alumnos");
+
+        ProcesosAlumnosAsignCursos.setText("Asignacion Cursos");
+        ProcesosAlumnosAsignCursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProcesosAlumnosAsignCursosActionPerformed(evt);
+            }
+        });
+        ProcesosAlumnos.add(ProcesosAlumnosAsignCursos);
+
+        mnuProcesos.add(ProcesosAlumnos);
+
         jMenuBar1.add(mnuProcesos);
 
         mnuReportes.setText("Reportes");
@@ -253,6 +268,16 @@ public class MdiGeneral extends javax.swing.JFrame {
         ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
     }//GEN-LAST:event_mnuSeguridadBitacoraActionPerformed
 
+    private void ProcesosAlumnosAsignCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcesosAlumnosAsignCursosActionPerformed
+        // TODO add your handling code here:
+        ProcesoAsignacionAlumnos ventana = new ProcesoAsignacionAlumnos();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    
+    }//GEN-LAST:event_ProcesosAlumnosAsignCursosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -289,6 +314,8 @@ public class MdiGeneral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu ProcesosAlumnos;
+    private javax.swing.JMenuItem ProcesosAlumnosAsignCursos;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

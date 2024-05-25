@@ -170,3 +170,19 @@ public class CiclosDAO {
     }
         
 }
+
+/*
+(101, "1 Ciclo", "A"),
+(102, "2 Ciclo", "A"),
+(103, "3 Ciclo", "A"),
+(104, "4 Ciclo", "A"),
+(105, "5 Ciclo", "A"),
+(106, "6 Ciclo", "A"),
+(107, "7 Ciclo", "A"),
+(108, "8 Ciclo", "A"),
+(109, "9 Ciclo", "A"),
+(110, "10 Ciclo", "A")
+
+
+
+*/

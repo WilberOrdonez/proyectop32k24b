@@ -6,19 +6,21 @@
 package vista;
 
 import modelo.AlumnosDAO;
-import modelo.CursosDAO;
-import modelo.EmpleadoDAO;
-import controlador.Cursos;
-import controlador.Empleado;
 import controlador.Alumnos;
+import controlador.clsBitacora;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
-
-import controlador.clsBitacora;
 import controlador.clsUsuarioConectado;
+import modelo.Conexion;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -359,6 +361,7 @@ public class MantenimientoAlumnos extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
+        Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "SCR");
         buscarAlumnos();
         Auditoria.setIngresarBitacora(clsUsuarioConectado.getIdUsuario(), codigoAplicacion, "SCR");
     }//GEN-LAST:event_btnBuscarActionPerformed
